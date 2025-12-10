@@ -34,6 +34,26 @@ export default [
     ],
     external: ['ws', 'node:events', 'node:util'],
   },
+  // CLI build
+  {
+    input: 'src/cli.ts',
+    output: {
+      file: 'dist/cli.js',
+      format: 'cjs',
+      sourcemap: true,
+    },
+    plugins: [
+      resolve({
+        preferBuiltins: true,
+      }),
+      commonjs(),
+      typescript({
+        tsconfig: './tsconfig.json',
+        exclude: ['**/*.test.ts', '**/*.spec.ts', 'tests/**/*'],
+      }),
+    ],
+    external: ['commander', 'chalk', 'ws', 'node:events', 'node:util'],
+  },
   // TypeScript declarations
   {
     input: 'dist/index.d.ts',

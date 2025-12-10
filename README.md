@@ -40,6 +40,60 @@ client.onHookCalled((event) => {
 await client.connect();
 ```
 
+## CLI Tool - Quick Testing
+
+The package also includes a CLI tool for quickly testing webhook connections from the terminal:
+
+### Installation
+
+```bash
+# Install globally for CLI access
+npm install -g @hookr/client
+```
+
+### Usage
+
+```bash
+# Listen for webhooks in real-time
+hookr listen your-client-key
+
+# Use JSON output format
+hookr listen your-client-key --format json
+
+# Connect to custom hookR instance
+hookr listen your-client-key --url wss://your-instance.com/events
+```
+
+### Example Output
+
+```
+🎣 Connecting to hookR service...
+   Client Key: abc123...
+   Service URL: wss://web.hookr.cloud/events
+
+✅ Connected to hookR service
+Waiting for webhook events...
+Press Ctrl+C to stop
+
+🪝 [14:32:15] Hook Called
+   Event ID: evt_abc123
+   Hook ID: hook_xyz789
+   Received At: 2025-12-10T14:32:15Z
+   Payload: {
+     "event": "user.created",
+     "data": {
+       "id": "user_123",
+       "email": "user@example.com"
+     }
+   }
+```
+
+The CLI tool is perfect for:
+- 🧪 **Testing webhook connections** during development
+- 🔍 **Debugging webhook payloads** in real-time  
+- 🚀 **Quick validation** of your hookR setup
+- 📊 **Monitoring webhook traffic** from the terminal
+
 ## Usage
 
 ### Basic Connection
@@ -151,8 +205,8 @@ client.close();
 
 | Option | Type | Default | Description |
 |--------|------|---------|-------------|
-| `wsUrl` | `string` | `wss://hookr-production.up.railway.app/events` | WebSocket server URL |
-| `apiUrl` | `string` | `https://hookr-production.up.railway.app/api/v1` | REST API base URL |
+| `wsUrl` | `string` | `wss://web.hookr.cloud/events` | WebSocket server URL |
+| `apiUrl` | `string` | `https://web.hookr.cloud/api/v1` | REST API base URL |
 | `maxReconnectAttempts` | `number` | `10` | Maximum reconnection attempts |
 | `reconnectDelay` | `number` | `1000` | Initial reconnection delay (ms) |
 | `logLevel` | `'silent' \| 'error' \| 'warn' \| 'info' \| 'debug'` | `'info'` | Logging verbosity |
@@ -252,8 +306,8 @@ The SDK provides descriptive error messages for common scenarios:
 ### Building from Source
 
 ```bash
-git clone https://github.com/hookr/@hookr/client.git
-cd @hookr/client
+git clone https://github.com/hookrteam/client.git
+cd client
 npm install
 npm run build
 ```
@@ -285,9 +339,9 @@ MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Support
 
-- 📖 [Documentation](https://github.com/hookr/@hookr/client#readme)
-- 🐛 [Issue Tracker](https://github.com/hookr/@hookr/client/issues)
-- 💬 [Discussions](https://github.com/hookr/@hookr/client/discussions)
+- 📖 [Documentation](https://github.com/hookrteam/client#readme)
+- 🐛 [Issue Tracker](https://github.com/hookrteam/client/issues)
+- 💬 [Discussions](https://github.com/hookrteam/client/discussions)
 
 ## Contributing
 

@@ -5,6 +5,9 @@
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
+  "bin": {
+    "hookr": "./dist/cli.js"
+  },
   "exports": {
     ".": {
       "import": "./dist/index.esm.js",
@@ -29,7 +32,8 @@
     "format:check": "prettier --check \"src/**/*.{ts,js,json}\"",
     "type-check": "tsc --noEmit",
     "prepublishOnly": "npm run build && npm run test && npm run lint",
-    "dev": "npm run build:watch"
+    "dev": "npm run build:watch",
+    "cli": "node dist/cli.js"
   },
   "keywords": [
     "webhook",
@@ -55,7 +59,9 @@
     "node": ">=16.0.0"
   },
   "dependencies": {
-    "ws": "^8.14.2"
+    "ws": "^8.14.2",
+    "commander": "^11.1.0",
+    "chalk": "^4.1.2"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^25.0.7",

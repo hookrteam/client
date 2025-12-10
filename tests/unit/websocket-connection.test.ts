@@ -59,7 +59,7 @@ describe('WebSocket Connection Management', () => {
       await client.connect();
 
       expect(WebSocket).toHaveBeenCalledWith(
-        expect.stringContaining('wss://hookr-production.up.railway.app/events?clientKey=valid-client-key-123')
+        expect.stringContaining('wss://web.hookr.cloud/events?clientKey=valid-client-key-123')
       );
     });
 

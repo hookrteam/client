@@ -26,8 +26,8 @@ describe('HookRClient Core Structure', () => {
       const client = new HookRClient('valid-client-key-123');
       const config = client.getConfig();
       
-      expect(config.wsUrl).toBe('wss://hookr-production.up.railway.app/events');
-      expect(config.apiUrl).toBe('https://hookr-production.up.railway.app/api/v1');
+      expect(config.wsUrl).toBe('wss://web.hookr.cloud/events');
+      expect(config.apiUrl).toBe('https://web.hookr.cloud/api/v1');
       expect(config.maxReconnectAttempts).toBe(10);
       expect(config.reconnectDelay).toBe(1000);
       expect(config.logLevel).toBe('info');
@@ -45,7 +45,7 @@ describe('HookRClient Core Structure', () => {
       expect(config.maxReconnectAttempts).toBe(5);
       expect(config.logLevel).toBe('debug');
       // Defaults should still be used for unspecified options
-      expect(config.apiUrl).toBe('https://hookr-production.up.railway.app/api/v1');
+      expect(config.apiUrl).toBe('https://web.hookr.cloud/api/v1');
       expect(config.reconnectDelay).toBe(1000);
     });
 
@@ -238,7 +238,7 @@ describe('HookRClient Core Structure', () => {
       
       // But original config should be unchanged
       const newConfig = client.getConfig();
-      expect(newConfig.wsUrl).toBe('wss://hookr-production.up.railway.app/events');
+      expect(newConfig.wsUrl).toBe('wss://web.hookr.cloud/events');
     });
   });
 });

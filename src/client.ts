@@ -180,9 +180,9 @@ export class HookRClient {
     options: HookRClientOptions
   ): Required<HookRClientOptions> {
     return {
-      wsUrl: options.wsUrl || 'wss://hookr-production.up.railway.app/events',
+      wsUrl: options.wsUrl || 'wss://web.hookr.cloud/events',
       apiUrl:
-        options.apiUrl || 'https://hookr-production.up.railway.app/api/v1',
+        options.apiUrl || 'https://web.hookr.cloud/api/v1',
       maxReconnectAttempts: options.maxReconnectAttempts ?? 10,
       reconnectDelay: options.reconnectDelay ?? 1000,
       logLevel: options.logLevel || 'info',
